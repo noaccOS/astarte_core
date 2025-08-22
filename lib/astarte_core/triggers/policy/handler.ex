@@ -115,10 +115,10 @@ defmodule Astarte.Core.Triggers.Policy.Handler do
       strategy: strategy
     } = handler
 
-    HandlerProto.new(
+    %HandlerProto{
       strategy: Map.get(@strategy_string_to_atom, strategy),
       on: error_type_to_tagged_error_tuple(error_type)
-    )
+    }
   end
 
   def from_handler_proto(%HandlerProto{} = handler_proto) do
@@ -135,11 +135,11 @@ defmodule Astarte.Core.Triggers.Policy.Handler do
 
   defp error_type_to_tagged_error_tuple(%Policy.ErrorKeyword{keyword: keyword}) do
     {:error_keyword,
-     ErrorKeywordProto.new(keyword: Map.get(@error_keyword_string_to_atom, keyword))}
+     %ErrorKeywordProto{keyword: Map.get(@error_keyword_string_to_atom, keyword)}}
   end
 
   defp error_type_to_tagged_error_tuple(%Policy.ErrorRange{error_codes: codes}) do
-    {:error_range, ErrorRangeProto.new(error_codes: codes)}
+    {:error_range, %ErrorRangeProto{error_codes: codes}}
   end
 
   defp tagged_error_tuple_to_error_type({_, %ErrorKeywordProto{keyword: keyword}}) do

@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Add required flag for mappings of object aggregated interfaces
 
+## [1.3.1] - 2026-07-10
+
 ## [1.3.0] - 2026-04-30
 
 ## [1.3.0-rc.2] - 2026-04-08
